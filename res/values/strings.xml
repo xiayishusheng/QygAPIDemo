@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello_world">Hello world!</string>
+    
+    <string name="app_name">奇异果</string>
+    <string name="action_settings">设置</string>
+    
+    <string name="get_image">获取图片</string>
+	<string name="no_image">没有图片</string>
+	<string name="image_url">http://pic1.sc.chinaz.com/files/pic/pic9/201403/apic293.jpg</string>
+	<string name="get_image_error">获取图片失败</string>
+</resources>
