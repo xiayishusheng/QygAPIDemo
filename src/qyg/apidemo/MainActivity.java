@@ -41,7 +41,7 @@ public class MainActivity extends ListActivity {
         List<Map<String, Object>> myData = new ArrayList<Map<String, Object>>();
 
         Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
-        mainIntent.addCategory(Intent.CATEGORY_SAMPLE_CODE);
+        mainIntent.addCategory("android.intent.category.MYCODE");
 
         PackageManager pm = getPackageManager();
         List<ResolveInfo> list = pm.queryIntentActivities(mainIntent, 0);
@@ -94,7 +94,7 @@ public class MainActivity extends ListActivity {
 
     private final static Comparator<Map<String, Object>> sDisplayNameComparator =
         new Comparator<Map<String, Object>>() {
-        private final Collator   collator = Collator.getInstance();
+        private final Collator collator = Collator.getInstance();
 
         public int compare(Map<String, Object> map1, Map<String, Object> map2) {
             return collator.compare(map1.get("title"), map2.get("title"));

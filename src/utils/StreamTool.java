@@ -6,7 +6,7 @@ import java.io.InputStream;
 public class StreamTool {
 
 	/**
-	 * 从流中读取数据
+	 * read data from stream
 	 * @param inputStream
 	 * @return
 	 * @throws Exception

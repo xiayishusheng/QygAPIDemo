@@ -55,7 +55,7 @@ public class AsyncTaskActivity extends Activity {
 		@Override
 		protected Long doInBackground(URL... urls) {
 			//int count = urls.length;
-			int count = 30;
+			int count = 10;
 			long totalSize = 0;
 			for (int i = 0; i <= count; i++) {
 				/*totalSize += Downloader.downloadFile(urls[i]);
