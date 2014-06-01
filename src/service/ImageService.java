@@ -10,9 +10,9 @@ import android.graphics.BitmapFactory;
 public class ImageService {
 
 	/**
-	 * 获取指定路径的图片
-	 * @param pathStr 路径
-	 * @return Bitmap图片
+	 * get image
+	 * @param pathStr
+	 * @return Bitmap
 	 * @throws Exception
 	 */
 	public static Bitmap getImage(String pathStr) throws Exception {
@@ -24,10 +24,10 @@ public class ImageService {
 		if(200 == connection.getResponseCode()) {
 			InputStream inputStream = connection.getInputStream();
 			
-			// 方法一
+			// method one
 			bitmap = BitmapFactory.decodeStream(inputStream);
 			
-			// 方法二
+			// method two
 			/*byte[] data = StreamTool.read(inputStream);
 			bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);*/
 			

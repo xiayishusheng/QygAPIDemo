@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_vertical_margin"
     android:fillViewport="true" >
 
     <LinearLayout
@@ -10,34 +11,34 @@
         android:orientation="vertical" >
 
         <Button
-            android:id="@+id/scan"
+            android:id="@+id/id_wifi__scan_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="扫描网络" />
+            android:text="@string/str_wifi__scan" />
 
         <Button
-            android:id="@+id/start"
+            android:id="@+id/id_wifi__open_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="打开Wifi" />
+            android:text="@string/str_wifi__open" />
 
         <Button
-            android:id="@+id/stop"
+            android:id="@+id/id_wifi__close_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="关闭Wifi" />
+            android:text="@string/str_wifi__close" />
 
         <Button
-            android:id="@+id/check"
+            android:id="@+id/id_wifi__status_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Wifi状态" />
+            android:text="@string/str_wifi__status" />
 
         <TextView
-            android:id="@+id/allNetWork"
+            android:id="@+id/id_wifi__info_tv"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="当前没有扫描到Wifi网络" />
+            android:text="@string/str_wifi__info" />
     </LinearLayout>
 
 </ScrollView>

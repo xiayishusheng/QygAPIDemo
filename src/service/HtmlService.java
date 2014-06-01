@@ -13,7 +13,7 @@ public class HtmlService {
 	private final String TAG = getClass().getSimpleName();
 	
 	public String getHtml(String path) throws Exception {
-		// 打开一个基于传入URL路径字符串的HttpURLConnection
+		// open HttpURLConnection
 		HttpsURLConnection coon = (HttpsURLConnection) new URL(path).openConnection();
 		coon.setConnectTimeout(5000);
 		coon.setRequestMethod("GET");
@@ -23,7 +23,7 @@ public class HtmlService {
 			Log.i(TAG, coon.getResponseCode() + "");
 			return new String(data);
 		}
-		Log.i(TAG, "传输成功！");
+		Log.i(TAG, "Transport Success!");
 		return path;
 	}
 }

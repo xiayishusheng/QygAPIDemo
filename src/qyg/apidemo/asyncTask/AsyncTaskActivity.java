@@ -13,21 +13,27 @@ import android.widget.Toast;
 public class AsyncTaskActivity extends Activity {
 
 	private final String TAG = getClass().getSimpleName();
+
+	/** define widget */
+	private TextView zProgressTv;
+	
+	/** define variable */
+	private DownloadFilesTask zDownloadFilesTask;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_asynctask);
+		setContentView(R.layout.asynctask);
 		
-		/** 获取控件 */
-		TextView progressTextView = (TextView) findViewById(R.id.progress);
-		DownloadFilesTask downloadFilesTask = new DownloadFilesTask(progressTextView);
-		downloadFilesTask.execute(new URL[]{});
+		/** get widget */
+		zProgressTv = (TextView) findViewById(R.id.id_asynctask_progress_tv);
+		zDownloadFilesTask = new DownloadFilesTask(zProgressTv);
+		zDownloadFilesTask.execute(new URL[]{});
 		//downloadFilesTask.cancel(true);
 	}
 
 	/**
-	 * 异步下载任务，处理耗时工作同时负责与主线程的通信
+	 * async download task, handle the time-consuming work and communicate with the main thread
 	 * @author YangZhen
 	 */
 	private class DownloadFilesTask extends AsyncTask<URL, Integer, Long> {
@@ -35,12 +41,12 @@ public class AsyncTaskActivity extends Activity {
 		private TextView textView;
 		public DownloadFilesTask(TextView progressTextView) {
 			//super();
-			this.textView = progressTextView;
+			textView = progressTextView;
 		}
 
 		/**
-		 * 第一被调用的方法
-		 * 任务执行前会被调用，适合于做初始化工作
+		 * First
+		 * Before the tasks will be invoked, suitable for initialization.
 		 */
 		@Override
 		protected void onPreExecute() {
@@ -48,9 +54,9 @@ public class AsyncTaskActivity extends Activity {
 		}
 
 		/**
-		 * 必须被实现的方法
-		 * 第二被调用的方法
-		 * 执行具体的耗时工作
+		 * Second
+		 * Methods must be implemented
+		 * Do the time-consuming work.
 		 */
 		@Override
 		protected Long doInBackground(URL... urls) {
@@ -60,7 +66,7 @@ public class AsyncTaskActivity extends Activity {
 			for (int i = 0; i <= count; i++) {
 				/*totalSize += Downloader.downloadFile(urls[i]);
 				publishProgress((int) ((i / (float) count) * 100));*/
-				// Escape early if cancel() is called
+				//Escape early if cancel() is called
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
@@ -74,27 +80,27 @@ public class AsyncTaskActivity extends Activity {
 		}
 
 		/**
-		 * 第三被执行的方法
-		 * 显示正在执行任务的进度
+		 * Third
+		 * Show the task being performed.
 		 */
 		@Override
 		protected void onProgressUpdate(Integer... progress) {
 			//setProgressPercent(progress[0]);
-			Log.i(TAG, "当前进度为：" + progress[0]);
-			textView.setText("当前进度为：" + progress[0]);
+			Log.i(TAG, "Current Poocess : " + progress[0]);
+			textView.setText("Current Poocess : " + progress[0]);
 		}
 
 		/**
-		 * 第四被调用的方法
-		 * 任务执行完成时被调用
+		 * Fourth
+		 * Called when the task is completed.
 		 */
 		@Override
 		protected void onPostExecute(Long result) {
-			Toast.makeText(getApplicationContext(), "下载完毕！", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "The download is complete!", Toast.LENGTH_SHORT).show();
 		}
 
 		/**
-		 * 当任务被取消时会被调用，当调用此方法时，系统不会再调用onPostExecute
+		 * This method is called when the task is cancelled. The system will not call onPostExecute().
 		 */
 		@Override
 		protected void onCancelled() {

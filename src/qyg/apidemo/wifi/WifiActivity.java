@@ -13,60 +13,60 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class WifiActivity extends Activity {
-	/** Called when the activity is first created. */
-	private TextView allNetWork;
-	private Button scan;
-	private Button start;
-	private Button stop;
-	private Button check;
-	private WifiAdmin mWifiAdmin;
-	// 扫描结果列表
-	private List<ScanResult> list;
-	private ScanResult mScanResult;
-	private StringBuffer sb = new StringBuffer();
+	
+	/** define widget */
+	private TextView zInfoTv;
+	private Button zScan;
+	private Button zOpen;
+	private Button zClose;
+	private Button zStatus;
+	private WifiAdmin zWifiAdmin;
+
+	private List<ScanResult> zResultList;
+	private ScanResult zScanResult;
+	private StringBuffer zStringBuffer = new StringBuffer();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_wifi);
-		mWifiAdmin = new WifiAdmin(WifiActivity.this);
+		setContentView(R.layout.wifi);
+		zWifiAdmin = new WifiAdmin(WifiActivity.this);
 		init();
 	}
 
 	public void init() {
-		allNetWork = (TextView) findViewById(R.id.allNetWork);
-		scan = (Button) findViewById(R.id.scan);
-		start = (Button) findViewById(R.id.start);
-		stop = (Button) findViewById(R.id.stop);
-		check = (Button) findViewById(R.id.check);
-		scan.setOnClickListener(new MyListener());
-		start.setOnClickListener(new MyListener());
-		stop.setOnClickListener(new MyListener());
-		check.setOnClickListener(new MyListener());
+		zInfoTv = (TextView) findViewById(R.id.id_wifi__info_tv);
+		zScan = (Button) findViewById(R.id.id_wifi__scan_btn);
+		zOpen = (Button) findViewById(R.id.id_wifi__open_btn);
+		zClose = (Button) findViewById(R.id.id_wifi__close_btn);
+		zStatus = (Button) findViewById(R.id.id_wifi__status_btn);
+		zScan.setOnClickListener(new MyListener());
+		zOpen.setOnClickListener(new MyListener());
+		zClose.setOnClickListener(new MyListener());
+		zStatus.setOnClickListener(new MyListener());
 	}
 
 	private class MyListener implements OnClickListener {
 
 		@Override
 		public void onClick(View v) {
-			// TODO Auto-generated method stub
 			switch (v.getId()) {
-			case R.id.scan:// 扫描网络
+			case R.id.id_wifi__scan_btn:
 				getAllNetWorkList();
 				break;
-			case R.id.start:// 打开Wifi
-				mWifiAdmin.openWifi();
+			case R.id.id_wifi__open_btn:
+				zWifiAdmin.openWifi();
 				Toast.makeText(WifiActivity.this,
-						"当前wifi状态为：" + mWifiAdmin.checkState(), 1).show();
+						"status:" + zWifiAdmin.checkState(), Toast.LENGTH_SHORT).show();
 				break;
-			case R.id.stop:// 关闭Wifi
-				mWifiAdmin.closeWifi();
+			case R.id.id_wifi__close_btn:
+				zWifiAdmin.closeWifi();
 				Toast.makeText(WifiActivity.this,
-						"当前wifi状态为：" + mWifiAdmin.checkState(), 1).show();
+						"status:" + zWifiAdmin.checkState(), Toast.LENGTH_SHORT).show();
 				break;
-			case R.id.check:// Wifi状态
+			case R.id.id_wifi__status_btn:
 				Toast.makeText(WifiActivity.this,
-						"当前wifi状态为：" + mWifiAdmin.checkState(), 1).show();
+						"status:" + zWifiAdmin.checkState(), Toast.LENGTH_SHORT).show();
 				break;
 			default:
 				break;
@@ -76,24 +76,23 @@ public class WifiActivity extends Activity {
 	}
 
 	public void getAllNetWorkList() {
-		// 每次点击扫描之前清空上一次的扫描结果
-		if (sb != null) {
-			sb = new StringBuffer();
+		//clean result
+		if (zStringBuffer != null) {
+			zStringBuffer = new StringBuffer();
 		}
-		// 开始扫描网络
-		mWifiAdmin.startScan();
-		list = mWifiAdmin.getWifiList();
-		if (list != null) {
-			for (int i = 0; i < list.size(); i++) {
-				// 得到扫描结果
-				mScanResult = list.get(i);
-				sb = sb.append(mScanResult.BSSID + "  ")
-						.append(mScanResult.SSID + "   ")
-						.append(mScanResult.capabilities + "   ")
-						.append(mScanResult.frequency + "   ")
-						.append(mScanResult.level + "\n\n");
+
+		zWifiAdmin.startScan();
+		zResultList = zWifiAdmin.getWifiList();
+		if (zResultList != null) {
+			for (int i = 0; i < zResultList.size(); i++) {
+				zScanResult = zResultList.get(i);
+				zStringBuffer = zStringBuffer.append(zScanResult.BSSID + "  ")
+						.append(zScanResult.SSID + "   ")
+						.append(zScanResult.capabilities + "   ")
+						.append(zScanResult.frequency + "   ")
+						.append(zScanResult.level + "\n\n");
 			}
-			allNetWork.setText("扫描到的wifi网络：\n" + sb.toString());
+			zInfoTv.setText("scan result:\n" + zStringBuffer.toString());
 		}
 	}
 }

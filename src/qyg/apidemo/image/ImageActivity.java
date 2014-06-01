@@ -19,43 +19,33 @@ public class ImageActivity extends Activity {
 
 	private String TAG = getClass().getSimpleName();
 	
-	/** 获取控件 */
-	private EditText pathText;
-	private ImageView imageView;
-	//private Button button;
+	/** define widget */
+	private EditText zUrlPathEt;
+	private ImageView zImageView;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_image);
-		pathText = (EditText) findViewById(R.id.editText1);
-		imageView = (ImageView) findViewById(R.id.imageView1);
-		/*button = (Button) findViewById(R.id.button1);	//此处按钮的监听事件是在xml布局文件中指定的
-		button.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				showImage();
-			}
-		});*/
+		setContentView(R.layout.image);
+		zUrlPathEt = (EditText) findViewById(R.id.id_image__url_et);
+		zImageView = (ImageView) findViewById(R.id.id_image__imageView);
 	}
 
-	// 定义Handler对象
 	@SuppressLint("HandlerLeak")
 	private Handler handler = new Handler() {
 		@Override
-		// 当有消息发送出来的时候就执行Handler的这个方法
 		public void handleMessage(Message msg) {
 			// super.handleMessage(msg);
 			switch (msg.what) {
 			case 0:
-				Toast.makeText(getApplicationContext(), R.string.get_image_error, Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), R.string.str_image__get_image_error, Toast.LENGTH_SHORT).show();
 				break;
 			case 1:
 				Bitmap bitmap = msg.getData().getParcelable("IMG");
 				if(null != bitmap) {
-					imageView.setImageBitmap(bitmap);
+					zImageView.setImageBitmap(bitmap);
 				} else {
-					Toast.makeText(getApplicationContext(), "图片不存在！", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), R.string.str_image__no_image, Toast.LENGTH_SHORT).show();
 				}
 				break;
 
@@ -66,7 +56,7 @@ public class ImageActivity extends Activity {
 	};
 
 	public void showImage(View v) {
-		final String pathStr = pathText.getText().toString();
+		final String pathStr = zUrlPathEt.getText().toString();
 		new Thread() {
 			public void run() {
 				Bitmap bitmap = null;
@@ -76,7 +66,6 @@ public class ImageActivity extends Activity {
 					Log.e(TAG, e.toString());
 					handler.sendEmptyMessage(0);
 				}
-				//handler.sendEmptyMessage(1);
 				Message msg = new Message();
 				Bundle msgBundle = new Bundle();
 				msgBundle.putParcelable("IMG", bitmap);

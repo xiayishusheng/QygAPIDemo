@@ -30,7 +30,7 @@ public class SimpleXmlPullApp {
 		System.out.println("End document");
 	}
 
-	/* 输出结果如下:
+	/* Result:
 	 Start document
 	 Start tag foo
 	 Text Hello World!

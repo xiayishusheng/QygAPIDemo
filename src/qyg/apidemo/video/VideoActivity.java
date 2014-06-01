@@ -7,12 +7,10 @@ import android.view.Menu;
 
 public class VideoActivity extends Activity {
 
-	/** »ñÈ¡¿Ø¼þ */
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//setContentView(R.layout.activity_video);
+		//setContentView(R.layout.video);
 	}
 
 	@Override

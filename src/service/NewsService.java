@@ -15,8 +15,8 @@ import entity.News;
 public class NewsService {
 
 	/**
-	 * 获取最新资讯
-	 * @return 列表
+	 * get news
+	 * @return list
 	 * @throws Exception
 	 */
 	public static List<News> getJSONLastNews() throws Exception {
@@ -32,7 +32,7 @@ public class NewsService {
 	}
 	
 	/**
-	 * 解析JSON
+	 * parse JSON
 	 * @param jsonInputStream
 	 * @return
 	 * @throws Exception

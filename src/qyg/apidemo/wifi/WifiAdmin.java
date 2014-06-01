@@ -10,130 +10,123 @@ import android.net.wifi.WifiManager;
 import android.net.wifi.WifiManager.WifiLock;
 
 public class WifiAdmin {
-	// 定义一个WifiManager对象
-	private WifiManager mWifiManager;
-	// 定义一个WifiInfo对象
-	private WifiInfo mWifiInfo;
-	// 扫描出的网络连接列表
-	private List<ScanResult> mWifiList;
-	// 网络连接列表
-	private List<WifiConfiguration> mWifiConfigurations;
-	private WifiLock mWifiLock;
+	//Define WifiManager Object
+	private WifiManager zWifiManager;
+	//Define WifiInfo Object
+	private WifiInfo zWifiInfo;
+	//Scan the list of network connections
+	private List<ScanResult> zWifiList;
+	//The list of network connections
+	private List<WifiConfiguration> zWifiConfigurations;
+	private WifiLock zWifiLock;
 
 	public WifiAdmin(Context context) {
-		// 取得WifiManager对象
-		mWifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-		// 取得WifiInfo对象
-		mWifiInfo = mWifiManager.getConnectionInfo();
+		zWifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+		zWifiInfo = zWifiManager.getConnectionInfo();
 	}
 
-	// 打开WIFI
+	//Open WiFi
 	public void openWifi() {
-		if (!mWifiManager.isWifiEnabled()) {
-			mWifiManager.setWifiEnabled(true);
+		if (!zWifiManager.isWifiEnabled()) {
+			zWifiManager.setWifiEnabled(true);
 		}
 	}
 
-	// 关闭WIFI
+	//Close WiFi
 	public void closeWifi() {
-		if (mWifiManager.isWifiEnabled()) {
-			mWifiManager.setWifiEnabled(false);
+		if (zWifiManager.isWifiEnabled()) {
+			zWifiManager.setWifiEnabled(false);
 		}
 	}
 
-	// 检查当前WIFI状态
+	//Check WiFi Status
 	public int checkState() {
-		return mWifiManager.getWifiState();
+		return zWifiManager.getWifiState();
 	}
 
-	// 锁定wifiLock
+	//Lock WiFi
 	public void acquireWifiLock() {
-		mWifiLock.acquire();
+		zWifiLock.acquire();
 	}
 
-	// 解锁wifiLock
+	//Release WiFi
 	public void releaseWifiLock() {
-		// 判断是否锁定
-		if (mWifiLock.isHeld()) {
-			mWifiLock.acquire();
+		if (zWifiLock.isHeld()) {
+			zWifiLock.acquire();
 		}
 	}
 
-	// 创建一个wifiLock
+	//Create WiFiLock
 	public void createWifiLock() {
-		mWifiLock = mWifiManager.createWifiLock("test");
+		zWifiLock = zWifiManager.createWifiLock("test");
 	}
 
-	// 得到配置好的网络
+	//Get WiFi Configuration
 	public List<WifiConfiguration> getConfiguration() {
-		return mWifiConfigurations;
+		return zWifiConfigurations;
 	}
 
-	// 指定配置好的网络进行连接
+	//Connect to the specified configured network
 	public void connetionConfiguration(int index) {
-		if (index > mWifiConfigurations.size()) {
+		if (index > zWifiConfigurations.size()) {
 			return;
 		}
-		// 连接配置好指定ID的网络
-		mWifiManager.enableNetwork(mWifiConfigurations.get(index).networkId,
-				true);
+		zWifiManager.enableNetwork(zWifiConfigurations.get(index).networkId, true);
 	}
 
 	public void startScan() {
-		mWifiManager.startScan();
-		// 得到扫描结果
-		mWifiList = mWifiManager.getScanResults();
-		// 得到配置好的网络连接
-		mWifiConfigurations = mWifiManager.getConfiguredNetworks();
+		zWifiManager.startScan();
+		zWifiList = zWifiManager.getScanResults();
+		zWifiConfigurations = zWifiManager.getConfiguredNetworks();
 	}
 
-	// 得到网络列表
+	//Get Network List
 	public List<ScanResult> getWifiList() {
-		return mWifiList;
+		return zWifiList;
 	}
 
-	// 查看扫描结果
+	//Scan Result
 	public StringBuffer lookUpScan() {
 		StringBuffer sb = new StringBuffer();
-		for (int i = 0; i < mWifiList.size(); i++) {
-			sb.append("Index_" + new Integer(i + 1).toString() + ":");
-			// 将ScanResult信息转换成一个字符串包,其中把包括:BSSID,SSID,capabilities,frequency,level
-			sb.append((mWifiList.get(i)).toString()).append("\n");
+		for (int i = 0; i < zWifiList.size(); i++) {
+			sb.append("Index_" + String.valueOf(i + 1) + ":");
+			//Convert ScanResult Info to String, include:BSSID,SSID,capabilities,frequency,level
+			sb.append((zWifiList.get(i)).toString()).append("\n");
 		}
 		return sb;
 	}
 
 	public String getMacAddress() {
-		return (mWifiInfo == null) ? "NULL" : mWifiInfo.getMacAddress();
+		return (zWifiInfo == null) ? "NULL" : zWifiInfo.getMacAddress();
 	}
 
 	public String getBSSID() {
-		return (mWifiInfo == null) ? "NULL" : mWifiInfo.getBSSID();
+		return (zWifiInfo == null) ? "NULL" : zWifiInfo.getBSSID();
 	}
 
 	public int getIpAddress() {
-		return (mWifiInfo == null) ? 0 : mWifiInfo.getIpAddress();
+		return (zWifiInfo == null) ? 0 : zWifiInfo.getIpAddress();
 	}
 
-	// 得到连接的ID
+	//Get Connect Id
 	public int getNetWordId() {
-		return (mWifiInfo == null) ? 0 : mWifiInfo.getNetworkId();
+		return (zWifiInfo == null) ? 0 : zWifiInfo.getNetworkId();
 	}
 
-	// 得到wifiInfo的所有信息
+	//Get wifiInfo
 	public String getWifiInfo() {
-		return (mWifiInfo == null) ? "NULL" : mWifiInfo.toString();
+		return (zWifiInfo == null) ? "NULL" : zWifiInfo.toString();
 	}
 
-	// 添加一个网络并连接
+	//Add Network Confiuration
 	public void addNetWork(WifiConfiguration configuration) {
-		int wcgId = mWifiManager.addNetwork(configuration);
-		mWifiManager.enableNetwork(wcgId, true);
+		int wcgId = zWifiManager.addNetwork(configuration);
+		zWifiManager.enableNetwork(wcgId, true);
 	}
 
-	// 断开指定ID的网络
+	//Disconnect specified id network
 	public void disConnectionWifi(int netId) {
-		mWifiManager.disableNetwork(netId);
-		mWifiManager.disconnect();
+		zWifiManager.disableNetwork(netId);
+		zWifiManager.disconnect();
 	}
 }

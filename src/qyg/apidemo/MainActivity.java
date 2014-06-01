@@ -23,7 +23,6 @@ public class MainActivity extends ListActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-//		setContentView(R.layout.activity_main);
 		Intent intent = getIntent();
         String path = intent.getStringExtra("qyg.apidemo.Path");
         
@@ -87,12 +86,12 @@ public class MainActivity extends ListActivity {
             }
         }
 
-        Collections.sort(myData, sDisplayNameComparator);
+        Collections.sort(myData, zDisplayNameComparator);
         
         return myData;
     }
 
-    private final static Comparator<Map<String, Object>> sDisplayNameComparator =
+    private final static Comparator<Map<String, Object>> zDisplayNameComparator =
         new Comparator<Map<String, Object>>() {
         private final Collator collator = Collator.getInstance();
 

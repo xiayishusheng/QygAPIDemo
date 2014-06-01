@@ -11,18 +11,17 @@ import android.widget.Button;
 
 public class BroadCastActivity extends Activity {
 
-	private Context mContext;
-	private Button mButton;
+	private Context zContext;
+	private Button zSendBroadCastBtn;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_broadcast);
-		mContext = this;
+		setContentView(R.layout.broadcast);
+		zContext = this;
 		//registerBoradcastReceiver();
-		mButton = (Button) findViewById(R.id.button1);
-		mButton.setText("·¢ËÍ¹ã²¥");
-		mButton.setOnClickListener(new OnClickListener() {
+		zSendBroadCastBtn = (Button) findViewById(R.id.id_broadcast_send_broadcast_btn);
+		zSendBroadCastBtn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Intent mIntent = new Intent("MY_ACTION_NAME");

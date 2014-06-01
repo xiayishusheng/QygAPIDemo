@@ -8,4 +8,11 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin" >
 
+    <TextView
+        android:id="@+id/id_asynctask_progress_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/str_asynctask__progress"
+        android:textSize="30sp" />
+
 </LinearLayout>
