@@ -14,5 +14,4 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
         String msg = bundle.getString("BroadCastData");
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
 	}   
-       
 }
