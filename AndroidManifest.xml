@@ -2,90 +2,107 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="qyg.apidemo"
     android:versionCode="1"
-    android:versionName="1.0">
+    android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="18"
-        android:targetSdkVersion="19"/>
+        android:targetSdkVersion="19" />
+    <!-- Declares that the app supports devices w/o touch, such as a Google TV device -->
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
 
+    <supports-screens android:largeScreens="true" />
+    
     <!-- users permission for WiFi -->
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>  
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>  
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>  
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>  
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
-        
+        android:theme="@style/AppTheme" >
+
         <!-- activities -->
         <activity
             android:name="qyg.apidemo.MainActivity"
-            android:label="MainActivity">
+            android:label="MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name=".asyncTask.AsyncTaskActivity"
-            android:label="AsyncTaskActivity">
+            android:label="AsyncTaskActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.MYCODE" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name="qyg.apidemo.image.ImageActivity"
-            android:label="ImageActivity">
+            android:label="ImageActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.MYCODE" />
             </intent-filter>
         </activity>
-        
         <activity
-			android:name="qyg.apidemo.video.VideoActivity"
-			android:label="VideoActivity">
+            android:name="qyg.apidemo.video.VideoActivity"
+            android:label="VideoActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.MYCODE" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name="qyg.apidemo.wifi.WifiActivity"
-            android:label="WifiActivity">
+            android:label="WifiActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.MYCODE" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name="qyg.apidemo.broadcast.BroadCastActivity"
             android:label="BroadCastActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.MYCODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="qyg.apidemo.snake.Snake"
+            android:label="Snake"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="nosensor"
+            android:theme="@android:style/Theme.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.MYCODE" />
             </intent-filter>
         </activity>
         
         <!-- broadcast receiver -->
-		<receiver
-		    android:name="qyg.apidemo.broadcast.MyBroadcastReceiver"
-		    android:permission="android.permission.INTERNET" >
+        <receiver
+            android:name="qyg.apidemo.broadcast.MyBroadcastReceiver"
+            android:permission="android.permission.INTERNET" >
             <intent-filter>
                 <action android:name="MY_ACTION_NAME" />
             </intent-filter>
         </receiver>
-        
     </application>
 
 </manifest>

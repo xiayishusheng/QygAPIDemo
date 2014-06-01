@@ -4,19 +4,19 @@
     <string name="hello_world">Hello world!</string>
     <string name="app_name">奇异果</string>
     <string name="action_settings">设置</string>
-    
     <string name="str_asynctask__progress">下载进度</string>
-    
     <string name="str_broadcast__send_broadcast">发送广播</string>
-    
     <string name="str_image__get_image">获取图片</string>
-	<string name="str_image__url">http://pic1.sc.chinaz.com/files/pic/pic9/201403/apic293.jpg</string>
-	<string name="str_image__no_image">图片不存在</string>
-	<string name="str_image__get_image_error">获取图片失败</string>
-	
-	<string name="str_wifi__scan">扫描网络</string>
-	<string name="str_wifi__open">打开Wifi</string>
-	<string name="str_wifi__close">关闭Wifi</string>
-	<string name="str_wifi__status">Wifi状态</string>
-	<string name="str_wifi__info">扫描不到Wifi网络</string>
+    <string name="str_image__url">http://pic1.sc.chinaz.com/files/pic/pic9/201403/apic293.jpg</string>
+    <string name="str_image__no_image">图片不存在</string>
+    <string name="str_image__get_image_error">获取图片失败</string>
+    <string name="str_wifi__scan">扫描网络</string>
+    <string name="str_wifi__open">打开Wifi</string>
+    <string name="str_wifi__close">关闭Wifi</string>
+    <string name="str_wifi__status">Wifi状态</string>
+    <string name="str_wifi__info">扫描不到Wifi网络</string>
+    <string name="mode_ready">Snake\nPress Up To Play</string>
+    <string name="mode_pause">Paused\nPress Up To Resume</string>
+    <string name="mode_lose">Game Over\nScore: %1$d \nPress Up To Play</string>
+
 </resources>
