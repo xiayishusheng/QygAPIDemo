@@ -14,13 +14,17 @@
 
     <supports-screens android:largeScreens="true" />
     
-    <!-- users permission for WiFi -->
+    <!-- permission for WiFi -->
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- permission for WiFi -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -67,6 +71,15 @@
         <activity
             android:name="qyg.apidemo.wifi.WifiActivity"
             android:label="WifiActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.MYCODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="qyg.apidemo.bluetooth.BlueTooth"
+            android:label="BlueTooth" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -15,6 +15,9 @@
     <string name="str_wifi__close">关闭Wifi</string>
     <string name="str_wifi__status">Wifi状态</string>
     <string name="str_wifi__info">扫描不到Wifi网络</string>
+    <string name="str_bluetooth__open">打开蓝牙</string>
+    <string name="str_bluetooth__close">关闭蓝牙</string>
+    
     <string name="mode_ready">Snake\nPress Up To Play</string>
     <string name="mode_pause">Paused\nPress Up To Resume</string>
     <string name="mode_lose">Game Over\nScore: %1$d \nPress Up To Play</string>
