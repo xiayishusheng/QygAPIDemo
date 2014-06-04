@@ -107,6 +107,15 @@
                 <category android:name="android.intent.category.MYCODE" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="qyg.apidemo.login.Login"
+            android:label="Login" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.MYCODE" />
+            </intent-filter>
+        </activity>
         
         <!-- broadcast receiver -->
         <receiver
