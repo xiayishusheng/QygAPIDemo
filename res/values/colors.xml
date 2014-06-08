@@ -7,4 +7,12 @@
     <color name="muted_green">#ff004000</color>
     <color name="text_violet">#ff8888ff</color>
 
+    <color name="red">   #ff0000</color>
+    <color name="green"> #00ff00</color>
+    <color name="blue">  #0000ff</color>
+    
+    <color name="transparent">#00000000</color>	<!-- 透明 -->
+    <color name="gray">#dddddd</color>			<!-- 灰色 -->
+    <color name="lightgreen">#78e45e</color>	<!-- 亮绿色 -->
+    
 </resources>

@@ -134,6 +134,10 @@
                 <category android:name="android.intent.category.MYCODE" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="qyg.apidemo.settings.Settings"
+            android:label="Settings" >
+        </activity>
         
         <!-- broadcast receiver -->
         <receiver

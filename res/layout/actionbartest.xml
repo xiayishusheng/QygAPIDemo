@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_vertical_margin"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/id_actionbartest__time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/time"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="60sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/id_actionbartest__wifilayout"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:background="@color/gray"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/id_actionbartest__wifilog_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="wifi log"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_actionbartest__btlayout"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:background="@color/gray"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/id_actionbartest__btlog_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="bt log"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/id_actionbartest__gnsslayout"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:background="@color/gray"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/id_actionbartest__gnsslog_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="gnss log"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_actionbartest__systemlayout"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:background="@color/gray"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/id_actionbartest__systemlog_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="system log"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ToggleButton
+            android:id="@+id/id_actionbartest__startstop_toggle"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:background="@drawable/toggle_selector"
+        android:text=""
+        android:textOff=""
+        android:textOn="" />
+    </FrameLayout>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.3" />
+
+</LinearLayout>

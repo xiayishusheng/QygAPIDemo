@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="基本设置" >
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="wifi_log_switch"
+            android:summary="Wifi日志"
+            android:title="Wifi日志" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="bt_log_switch"
+            android:summary="Bt日志"
+            android:title="Bt日志" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="gnss_log_switch"
+            android:summary="gnss日志"
+            android:title="gnss日志" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="system_log_switch"
+            android:summary="system日志"
+            android:title="system日志" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="高级设置" >
+        <EditTextPreference
+            android:defaultValue="ifconfig"
+            android:key="run_command"
+            android:summary="输入要运行的命令"
+            android:title="运行命令" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="start_automatic"
+            android:summary="是否开机启动"
+            android:title="开机启动" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
