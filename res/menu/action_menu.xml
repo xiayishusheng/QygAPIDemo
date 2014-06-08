@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/action_menu_folder"
+        android:icon="@drawable/foldergreen"
+        android:showAsAction="always"
+        android:title="@string/action_settings"/>
+    <item
+        android:id="@+id/action_menu_delete"
+        android:icon="@drawable/delete"
+        android:showAsAction="always"
+        android:title="@string/action_settings"/>
+    <item
+        android:id="@+id/action_menu_setting"
+        android:icon="@drawable/action_setting"
+        android:showAsAction="always"
+        android:title="@string/action_settings"/>
+
+</menu>
