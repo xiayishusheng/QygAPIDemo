@@ -17,6 +17,7 @@
     <string name="str_wifi__info">扫描不到Wifi网络</string>
     <string name="str_bluetooth__open">打开蓝牙</string>
     <string name="str_bluetooth__close">关闭蓝牙</string>
+    <string name="str_changedrawable__text">改变Drawable背景图片</string>
     
     <string name="mode_ready">Snake\nPress Up To Play</string>
     <string name="mode_pause">Paused\nPress Up To Resume</string>

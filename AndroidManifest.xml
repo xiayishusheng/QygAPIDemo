@@ -116,7 +116,15 @@
                 <category android:name="android.intent.category.MYCODE" />
             </intent-filter>
         </activity>
-        
+        <activity
+            android:name="qyg.apidemo.drawable.ChangeDrawable"
+            android:label="ChangeDrawable" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.MYCODE" />
+            </intent-filter>
+        </activity>
         <!-- broadcast receiver -->
         <receiver
             android:name="qyg.apidemo.broadcast.MyBroadcastReceiver"
