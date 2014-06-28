@@ -25,6 +25,11 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -128,6 +133,15 @@
         <activity
             android:name="qyg.apidemo.actionbar.ActionBarTest"
             android:label="ActionBarTest" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.MYCODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="qyg.apidemo.widget.TextViewActivity"
+            android:label="文本控件测试" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
