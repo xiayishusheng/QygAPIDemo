@@ -52,7 +52,7 @@
                         android:id="@+id/id_actionbartest__wifilog_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="wifi log"
+                        android:text="@string/wifi_log"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
                 </LinearLayout>
 
@@ -70,7 +70,7 @@
                         android:id="@+id/id_actionbartest__btlog_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="bt log"
+                        android:text="@string/bt_log"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
                 </LinearLayout>
             </LinearLayout>
@@ -95,7 +95,7 @@
                         android:id="@+id/id_actionbartest__gnsslog_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="gnss log"
+                        android:text="@string/gnss_log"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
                 </LinearLayout>
 
@@ -113,7 +113,7 @@
                         android:id="@+id/id_actionbartest__systemlog_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="system log"
+                        android:text="@string/system_log"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
                 </LinearLayout>
             </LinearLayout>
@@ -121,13 +121,12 @@
 
         <ToggleButton
             android:id="@+id/id_actionbartest__startstop_toggle"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:background="@drawable/toggle_selector"
-        android:text=""
-        android:textOff=""
-        android:textOn="" />
+	        android:layout_width="100dp"
+	        android:layout_height="100dp"
+	        android:layout_gravity="center"
+	        android:background="@drawable/toggle_selector"
+	        android:textOff=""
+	        android:textOn="" />
     </FrameLayout>
 
     <Space

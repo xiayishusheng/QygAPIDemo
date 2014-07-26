@@ -24,5 +24,13 @@
     <string name="mode_pause">Paused\nPress Up To Resume</string>
     <string name="mode_lose">Game Over\nScore: %1$d \nPress Up To Play</string>
     <string name="time">00:00:00</string>
+    <string name="this_is_fragment_1">This is fragment #1</string>
+    <string name="this_is_fragment_2">This is fragment #2</string>
+    <string name="get_text_in_fragment_1">Get text in Fragment #1</string>
+    <string name="login">登录</string>
+    <string name="wifi_log">wifi log</string>
+    <string name="bt_log">bt log</string>
+    <string name="gnss_log">gnss log</string>
+    <string name="system_log">system log</string>
 
 </resources>

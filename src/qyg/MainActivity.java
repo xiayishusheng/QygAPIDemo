@@ -1,4 +1,4 @@
-package qyg.apidemo;
+package qyg;
 
 import java.text.Collator;
 import java.util.ArrayList;
@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import qyg.apidemo.R;
+import qyg.apidemo.R.menu;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.content.pm.PackageManager;

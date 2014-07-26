@@ -21,7 +21,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!-- permission for WiFi -->
+    <!-- permission for Blue tooth -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     
@@ -30,6 +30,10 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    
+    <!-- permission for Others -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -38,47 +42,42 @@
 
         <!-- activities -->
         <activity
-            android:name="qyg.apidemo.MainActivity"
+            android:name="qyg.MainActivity"
             android:label="MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".asyncTask.AsyncTaskActivity"
-            android:label="AsyncTaskActivity" >
+            android:label="异步任务" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.MYCODE" />
             </intent-filter>
         </activity>
         <activity
             android:name="qyg.apidemo.image.ImageActivity"
-            android:label="ImageActivity" >
+            android:label="图像" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.MYCODE" />
             </intent-filter>
         </activity>
         <activity
             android:name="qyg.apidemo.video.VideoActivity"
-            android:label="VideoActivity" >
+            android:label="视频" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.MYCODE" />
             </intent-filter>
         </activity>
         <activity
             android:name="qyg.apidemo.wifi.WifiActivity"
-            android:label="WifiActivity" >
+            android:label="Wifi" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.MYCODE" />
             </intent-filter>
         </activity>
@@ -87,37 +86,33 @@
             android:label="BlueTooth" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.MYCODE" />
             </intent-filter>
         </activity>
         <activity
             android:name="qyg.apidemo.broadcast.BroadCastActivity"
-            android:label="BroadCastActivity" >
+            android:label="广播" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.MYCODE" />
             </intent-filter>
         </activity>
         <activity
             android:name="qyg.apidemo.snake.Snake"
-            android:label="Snake"
+            android:label="贪吃蛇"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="nosensor"
             android:theme="@android:style/Theme.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.MYCODE" />
             </intent-filter>
         </activity>
         <activity
             android:name="qyg.apidemo.login.Login"
-            android:label="Login" >
+            android:label="登录" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.MYCODE" />
             </intent-filter>
         </activity>
@@ -126,7 +121,6 @@
             android:label="ChangeDrawable" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.MYCODE" />
             </intent-filter>
         </activity>
@@ -135,7 +129,6 @@
             android:label="ActionBarTest" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.MYCODE" />
             </intent-filter>
         </activity>
@@ -144,7 +137,6 @@
             android:label="文本控件测试" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.MYCODE" />
             </intent-filter>
         </activity>
@@ -152,6 +144,47 @@
             android:name="qyg.apidemo.settings.Settings"
             android:label="Settings" >
         </activity>
+        <activity
+            android:name="qyg.apidemo.fragments.FragmentsActivity"
+            android:label="碎片测试" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.MYCODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="qyg.apidemo.activity.FirstActivity"
+            android:label="Activity测试" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.MYCODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="SecondActivity"
+            android:name="qyg.apidemo.activity.SecondActivity">
+            <intent-filter>
+                <action android:name="qyg.apidemo.activity.SecondActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="ThirdActivity"
+            android:name="qyg.apidemo.activity.ThirdActivity">
+            <intent-filter>
+                <action android:name="qyg.apidemo.activity.SecondActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="通知栏测试"
+            android:name="qyg.apidemo.notification.NotificationsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.MYCODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name="qyg.apidemo.notification.NotificationView"></activity>
         
         <!-- broadcast receiver -->
         <receiver
