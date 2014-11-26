@@ -8,6 +8,8 @@ import java.io.InputStreamReader;
 
 import android.content.Context;
 import android.os.Environment;
+import android.os.StatFs;
+import android.text.format.Formatter;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -93,4 +95,26 @@ public class Utils {
 	public static void makeToast(Context context, String msg) {
 		Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
 	}
+	
+	/**
+	 * 获取Sdcard的容量大小
+	 * @param context 上下文
+	 * @return Sdcard的容量大小
+	 */
+	public static String getSdcardSize(Context context) {
+		File path = Environment.getExternalStorageDirectory();
+		//File path = Environment.getDataDirectory();//data
+		StatFs stat = new StatFs(path.getPath());
+		long blockSize = stat.getBlockSizeLong();
+		long totalBlocks = stat.getBlockCountLong();
+		long availableBlocks = stat.getAvailableBlocksLong();
+		
+		long totalSize = blockSize * totalBlocks;
+		long availSize = blockSize * availableBlocks;
+		
+		String totalStr = Formatter.formatFileSize(context, totalSize);//总大小
+		String availStr = Formatter.formatFileSize(context, availSize);//可用大小
+		return totalStr;
+	}
+	
 }
