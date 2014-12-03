@@ -8,6 +8,10 @@
         android:minSdkVersion="18"
         android:targetSdkVersion="19" />
     <!-- Declares that the app supports devices w/o touch, such as a Google TV device -->
+    <instrumentation
+    	android:name="android.test.InstrumentationTestRunner"
+    	android:targetPackage="qyg.apidemo" />
+    
     <uses-feature
         android:name="android.hardware.touchscreen"
         android:required="false" />
@@ -39,7 +43,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
+		<uses-library android:name="android.test.runner" />
         <!-- activities -->
         <activity
             android:name="qyg.MainActivity"
