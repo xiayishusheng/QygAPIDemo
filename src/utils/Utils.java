@@ -1,9 +1,12 @@
 package utils;
 
 import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 import android.content.Context;
@@ -115,6 +118,41 @@ public class Utils {
 		String totalStr = Formatter.formatFileSize(context, totalSize);//总大小
 		String availStr = Formatter.formatFileSize(context, availSize);//可用大小
 		return totalStr;
+	}
+	
+	/**
+	 * 获取root权限，并以root身份执行命令
+	 */
+	public static void getRoot() {
+
+		DataOutputStream os = null;
+	    DataInputStream is = null;
+	    Process process = null;
+		try {
+			process = Runtime.getRuntime().exec("su");
+			os = new DataOutputStream(process.getOutputStream());
+			is = new DataInputStream(process.getInputStream());
+			os.writeBytes("netcfg wlan0 up" + " \n"); //这里可以执行具有root 权限的程序了  
+            os.writeBytes(" exit \n");
+            os.flush();
+            process.waitFor();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+                if (os != null) {
+                    os.close();
+                }
+                if (is != null) {
+                    is.close();
+                }
+                process.destroy();
+            } catch (Exception e) {
+            	e.printStackTrace();
+            }
+		}
 	}
 	
 }
